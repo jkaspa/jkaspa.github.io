@@ -114,6 +114,8 @@ section { padding-block: clamp(48px, 8vw, 96px); border-top: 1px solid var(--lin
 .slot:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
 
 .slot.shot { aspect-ratio: 16 / 9; cursor: default; }
+.slot.fit { aspect-ratio: 4 / 3; }
+.slot.fit img { object-fit: contain; object-position: center; background: var(--surface); }
 .tabs { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--line); }
 .tab { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
 .tab.on { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
@@ -140,6 +142,10 @@ section { padding-block: clamp(48px, 8vw, 96px); border-top: 1px solid var(--lin
 button.btn { font-family: inherit; color: inherit; cursor: pointer; }
 footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 
+.approach .why { margin-top: 20px; border-top: 2px solid var(--fg); padding-top: 16px; }
+@media (min-width: 861px) {
+  .card.wide { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: clamp(24px, 4vw, 56px); }
+}
 @media (max-width: 860px) {
   .grid, .approach { grid-template-columns: minmax(0, 1fr); }
   .feature { grid-template-columns: minmax(0, 1fr); }
@@ -280,52 +286,59 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       <article class="card">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">empirevalue.com / PE Perspective</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot fit has-img">
+            <img src="images/pe-perspective.png" alt="PE Perspective workspace with a financial grid beside a revenue and EBITDA chart and a cash to EBITDA bridge">
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Web app</span>
           <h3>Empire Value, PE Perspective</h3>
-          <p>A private equity perspective section that turns dense analysis into something readable.</p>
+          <p>A private equity workspace that sets a detailed financial grid beside a revenue and EBITDA chart and a cash to EBITDA bridge, so dense numbers can be compared at a glance.</p>
         </div>
       </article>
 
       <article class="card">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">ivminc.com / SmartHub</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot fit has-img" data-gallery>
+            <img src="images/smarthub-vend-activity.jpg" alt="SmartHub vend activity table with side navigation, search and a View button on each row">
+          </div>
+          <div class="tabs" role="group" aria-label="SmartHub screens">
+            <button type="button" class="tab on" data-src="images/smarthub-vend-activity.jpg" data-alt="SmartHub vend activity table with side navigation, search and a View button on each row" aria-pressed="true">Vend activity</button>
+            <button type="button" class="tab" data-src="images/smarthub-reporting.jpg" data-alt="SmartHub reporting screen with a row of report types above a wide results table and a Download as CSV button" aria-pressed="false">Reporting</button>
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Web app</span>
           <h3>SmartHub</h3>
-          <p>A hub that brings the information a team needs into one place.</p>
+          <p>A management console for vending machines and lockers. Side navigation, searchable activity tables and a report picker with CSV download keep a lot of data easy to scan.</p>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card wide">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">Northwest Registered Agent / Client portal</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot fit has-img" data-gallery>
+            <img src="images/northwest-home.png" alt="Client portal home with an assistant chat panel and shortcuts to mail, billing, registered agent and services">
+          </div>
+          <div class="tabs" role="group" aria-label="Client portal screens">
+            <button type="button" class="tab on" data-src="images/northwest-home.png" data-alt="Client portal home with an assistant chat panel and shortcuts to mail, billing, registered agent and services" aria-pressed="true">Home</button>
+            <button type="button" class="tab" data-src="images/northwest-voicemail.png" data-alt="Client portal voicemail page with a message list and voicemail greeting settings" aria-pressed="false">Voicemail</button>
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Web app</span>
           <h3>Client Portal</h3>
-          <p>A portal where customers manage their account and documents without needing help.</p>
+          <p>A customer portal that opens with an assistant to answer questions, with shortcuts to mail, billing, registered agent and services, plus voicemail tools for playing messages and managing a greeting.</p>
         </div>
       </article>
 
-      <article class="card">
-        <div class="meta">
-          <span class="tag">Why it matters</span>
-          <h3>Same goal, every screen</h3>
-          <p>Whether it is a portal or a phone app, I start from the task the person is trying to finish and cut everything that gets in its way.</p>
-        </div>
-      </article>
 
       <article class="feature">
         <div class="meta">
-          <span class="tag">iOS app</span>
+          <span class="tag">iOS/Android App</span>
           <h3>Corporate Phone</h3>
-          <p>An iPhone app that adds a second number to one phone. Picking a number, messaging and calling each get a focused, easy-to-scan screen.</p>
+          <p>A mobile app that adds a second number to one phone. Picking a number, messaging and calling each get a focused, easy-to-scan screen.</p>
         </div>
         <div class="phones">
           <div class="phone"><div class="slot static has-img"><img src="images/corporate-phone-select-number.png" alt="Corporate Phone number selection screen with the headline Your number, anywhere in the U.S."></div></div>
@@ -354,6 +367,8 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       <div>
         <h3>UI/UX problem solving</h3>
         <p>I break complicated flows into steps people can follow, then test them against real tasks.</p>
+        <h3 class="why">Why it matters</h3>
+        <p>UI/UX design is important because it bridges the gap between what a technology can do and how easily a real person can actually use it—turning a frustrating experience into a smooth, intuitive one that saves time and keeps people coming back.</p>
       </div>
     </div>
   </section>
