@@ -82,6 +82,7 @@ p { margin: 0; max-width: 62ch; }
 .btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
 
 /* sections */
+#websites, #apps, #approach, #contact { scroll-margin-top: calc(var(--header-h, 110px) + env(safe-area-inset-top, 0px) + 20px); }
 section { padding-block: clamp(48px, 8vw, 96px); border-top: 1px solid var(--line); }
 .sec-head { display: grid; gap: 14px; margin-bottom: clamp(28px, 5vw, 56px); }
 .sec-head p { color: var(--muted); }
@@ -188,8 +189,8 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
     </div>
   </div>
 
-  <section id="websites">
-    <div class="sec-head">
+  <section>
+    <div class="sec-head" id="websites">
       <p class="eyebrow">Websites</p>
       <h2>Partnering to transform web identities</h2>
       <p>Four sites I led from first sketch to launch. I directed the design and built the code myself.</p>
@@ -275,8 +276,8 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
     </div>
   </section>
 
-  <section id="apps">
-    <div class="sec-head">
+  <section>
+    <div class="sec-head" id="apps">
       <p class="eyebrow">Web and mobile apps</p>
       <h2>Tools people use every day</h2>
       <p>Dashboards, portals and a mobile app, where the hard part is keeping a lot of information easy to act on.</p>
@@ -328,7 +329,7 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
         </figure>
         <div class="meta">
           <span class="tag">Web app</span>
-          <h3>Client Portal</h3>
+          <h3>Northwest Registered Agent client portal</h3>
           <p>A customer portal that opens with an assistant to answer questions, with shortcuts to mail, billing, registered agent and services, plus voicemail tools for playing messages and managing a greeting.</p>
         </div>
       </article>
@@ -350,8 +351,8 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
     </div>
   </section>
 
-  <section id="approach">
-    <div class="sec-head">
+  <section>
+    <div class="sec-head" id="approach">
       <p class="eyebrow">Approach</p>
       <h2>Design and code in one head</h2>
     </div>
@@ -373,8 +374,8 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
     </div>
   </section>
 
-  <section id="contact">
-    <div class="contact">
+  <section>
+    <div class="contact" id="contact">
       <p class="eyebrow">Contact</p>
       <h2>Looking for some clarity?</h2>
       <p>I'm excited to help you turn your vision into reality.</p>
@@ -419,6 +420,12 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       });
     });
   });
+
+  var hdr = document.querySelector('.top');
+  function setHeaderH() { if (hdr) document.documentElement.style.setProperty('--header-h', hdr.offsetHeight + 'px'); }
+  setHeaderH();
+  window.addEventListener('resize', setHeaderH);
+  window.addEventListener('load', setHeaderH);
 
   var btn = document.getElementById('copy');
   var email = document.getElementById('email');
