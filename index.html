@@ -113,6 +113,11 @@ section { padding-block: clamp(48px, 8vw, 96px); border-top: 1px solid var(--lin
 .slot input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 .slot:focus-within { outline: 2px solid var(--accent); outline-offset: -2px; }
 
+.slot.shot { aspect-ratio: 16 / 9; cursor: default; }
+.tabs { display: flex; gap: 8px; padding: 10px 14px; border-top: 1px solid var(--line); }
+.tab { font-family: var(--font-mono); font-size: 12px; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.tab.on { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+
 /* phones */
 .feature { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: clamp(24px, 4vw, 56px); align-items: center; padding-top: clamp(8px, 2vw, 24px); }
 .phones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 2vw, 22px); }
@@ -168,7 +173,7 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       <text x="14" y="112">THE PROBLEM</text>
       <text x="746" y="86" text-anchor="end">THE INTERFACE</text>
     </svg>
-    <p class="lede">I design and build websites, web apps and mobile apps, and I work best where the interface has a lot to explain. Here is a selection of the work.</p>
+    <p class="lede">I'm a dynamic designer who thrives on turning abstract ideas into clear, intuitive interfaces. I design and build websites, web apps and mobile apps, and I do my best work when the problem is still fuzzy and there is a lot to untangle. Here is a selection of the work.</p>
     <div class="cta-row">
       <a class="btn primary" href="#websites">See the work</a>
       <a class="btn" href="#contact">Get in touch</a>
@@ -178,20 +183,26 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
   <section id="websites">
     <div class="sec-head">
       <p class="eyebrow">Websites</p>
-      <h2>Sites I designed and built</h2>
-      <p>Four sites where I handled both the design and the development.</p>
+      <h2>Partnering to transform web identities</h2>
+      <p>Four sites I led from first sketch to launch. I directed the design and built the code myself.</p>
     </div>
     <div class="grid">
 
       <article class="card">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">commercial-bank.com</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot has-img" data-gallery>
+            <img src="images/commercial-bank-home.png" alt="Commercial Bank home page with a full-width home loan banner, sign-in buttons and main navigation">
+          </div>
+          <div class="tabs" role="group" aria-label="Commercial Bank pages">
+            <button type="button" class="tab on" data-src="images/commercial-bank-home.png" data-alt="Commercial Bank home page with a full-width home loan banner, sign-in buttons and main navigation" aria-pressed="true">Home page</button>
+            <button type="button" class="tab" data-src="images/commercial-bank-telephone-banking.png" data-alt="Commercial Bank telephone banking page with a feature list and enrollment phone numbers" aria-pressed="false">Inner page</button>
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Design + Development</span>
           <h3>Commercial Bank</h3>
-          <p>A banking site where clear structure and trust come first, so customers reach the services they came for.</p>
+          <p>I led the design and development of this community bank site. I put sign-in, account opening and the main services within one click of the header, and I built a bold home loan banner and plain, readable inner pages.</p>
           <a class="visit" href="https://www.commercial-bank.com" rel="noopener">Visit commercial-bank.com</a>
         </div>
       </article>
@@ -199,12 +210,18 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       <article class="card">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">traverseoutdoor.com</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot has-img" data-gallery>
+            <img src="images/traverse-outdoor-home.png" alt="Traverse Outdoor home page with a project video above the fold, a simple five-item menu and a call button">
+          </div>
+          <div class="tabs" role="group" aria-label="Traverse Outdoor pages">
+            <button type="button" class="tab on" data-src="images/traverse-outdoor-home.png" data-alt="Traverse Outdoor home page with a project video above the fold, a simple five-item menu and a call button" aria-pressed="true">Home page</button>
+            <button type="button" class="tab" data-src="images/traverse-outdoor-landscaping.png" data-alt="Traverse Outdoor landscaping page with a garden hero image and an introduction beside a project photo" aria-pressed="false">Landscaping page</button>
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Design + Development</span>
           <h3>Traverse Outdoor</h3>
-          <p>An outdoor brand site that lets the products and imagery carry each page.</p>
+          <p>I designed and built this landscaping and irrigation site from start to finish. I opened it on a real project video and kept a call button in the header, so photos of the work and a way to reach the crew are always in view.</p>
           <a class="visit" href="https://www.traverseoutdoor.com" rel="noopener">Visit traverseoutdoor.com</a>
         </div>
       </article>
@@ -212,12 +229,18 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       <article class="card">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">conedrive.com</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot has-img" data-gallery>
+            <img src="images/cone-drive-home.png" alt="Cone Drive home page with a robotics hero banner and product category cards for harmonic, cycloidal and worm gearing">
+          </div>
+          <div class="tabs" role="group" aria-label="Cone Drive pages">
+            <button type="button" class="tab on" data-src="images/cone-drive-home.png" data-alt="Cone Drive home page with a robotics hero banner and product category cards for harmonic, cycloidal and worm gearing" aria-pressed="true">Home page</button>
+            <button type="button" class="tab" data-src="images/cone-drive-tools.png" data-alt="Cone Drive design and selection tools page with a card for each gearing technology and a Show me the tools button" aria-pressed="false">Design tools page</button>
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Design + Development</span>
           <h3>Cone Drive</h3>
-          <p>Technical product information organized so buyers can find the right part quickly.</p>
+          <p>I drove the design and development of this technical product site for engineers. I laid out the gearing families as clear cards and built a design and selection tools page that leads buyers to CAD models, drawings and quotes.</p>
           <a class="visit" href="https://www.conedrive.com" rel="noopener">Visit conedrive.com</a>
         </div>
       </article>
@@ -225,12 +248,18 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
       <article class="card">
         <figure class="frame">
           <div class="chrome"><i></i><i></i><i></i><span class="url">localdifference.org</span></div>
-          <label class="slot"><input type="file" accept="image/*"><span class="hint"><b>Screenshot goes here</b>Click to preview an image</span></label>
+          <div class="slot shot has-img" data-gallery>
+            <img src="images/local-difference-home.png" alt="Local Difference home page with a produce box photo, the headline Taste the Local Difference and a Find Local Food button">
+          </div>
+          <div class="tabs" role="group" aria-label="Local Difference pages">
+            <button type="button" class="tab on" data-src="images/local-difference-home.png" data-alt="Local Difference home page with a produce box photo, the headline Taste the Local Difference and a Find Local Food button" aria-pressed="true">Home page</button>
+            <button type="button" class="tab" data-src="images/local-difference-services.png" data-alt="Local Difference local food marketing services page with a curved dark header, intro copy and a button to explore the services" aria-pressed="false">Services page</button>
+          </div>
         </figure>
         <div class="meta">
           <span class="tag">Design + Development</span>
           <h3>Local Difference</h3>
-          <p>A mission-driven site that makes the next step obvious for every visitor.</p>
+          <p>I designed and developed this mission-driven site, shaping every page around the next step for each visitor, whether that is finding local food or exploring marketing services. I paired a bold display face with a warm, food-inspired palette.</p>
           <a class="visit" href="https://www.localdifference.org" rel="noopener">Visit localdifference.org</a>
         </div>
       </article>
@@ -359,6 +388,18 @@ footer { padding-block: 32px max(32px, env(safe-area-inset-bottom, 0px)); border
         slot.classList.add('has-img');
       };
       reader.readAsDataURL(file);
+    });
+  });
+
+  document.querySelectorAll('[data-gallery]').forEach(function (g) {
+    var img = g.querySelector('img');
+    var tabs = g.parentNode.querySelectorAll('.tab');
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        img.src = t.getAttribute('data-src');
+        img.alt = t.getAttribute('data-alt');
+        tabs.forEach(function (o) { o.classList.toggle('on', o === t); o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); });
+      });
     });
   });
 
